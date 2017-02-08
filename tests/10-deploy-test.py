@@ -47,7 +47,7 @@ lsb_release_command = 'cat /etc/lsb-release'
 uname_command = 'uname -a'
 
 # Cat the release information
-output, code = d.sentry.unit['ubuntu/0'].run(lsb_release_command)
+output, code = d.sentry['ubuntu'][0].run(lsb_release_command)
 # Confirm the lsb-release command was ran successfully
 if (code != 0):
     error_message = 'The ' + lsb_release_command + ' did not return the expected return code of 0.'
@@ -59,7 +59,7 @@ else:
     print(message)
 
 # Get the uname -a output 
-output, code = d.sentry.unit['ubuntu/0'].run(uname_command)
+output, code = d.sentry['ubuntu'][0].run(uname_command)
 # Confirm the uname command was ran successfully
 if (code != 0):
     error_message = 'The ' + uname_command + ' did not return the expected return code of 0.'
